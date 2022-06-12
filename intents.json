@@ -883,6 +883,183 @@
             "patterns": ["what's popping","wassup popping"],
             "responses": ["So that you can pop with it!?"],
             "context": [""]
+        },
+        {
+            "tag": "other",
+            "patterns": ["xyz"],
+            "responses": ["Hmm I'm not understanding","???","You've only gone and bamboozled me... what?", "IDK.","Uh, I dont understand"],
+            "context": [""]
+        },
+        {
+            "tag": "who",
+            "patterns": ["  Who are you?"],
+            "responses": [" I am just an artificial intelligence chat agent."],
+            "context": [""]
+        },
+
+        {
+                    "tag": "greeting",
+                    "patterns": [ "Hi", "How are you", "Is anyone there?", "Hello", "Good day" ],
+                    "responses": [ "Hello, thanks for visiting", "Good to see you again", "Hi there, how can I help?" ],
+                    "context": [""]
+        },
+
+        {
+                    "tag": "favorite_color",
+                    "patterns": [ "What is your favorite color?", "Do you like any particular color?" ],
+                    "responses": [ "I like blue.", "My favorite color is green." ],
+                    "context": [""]
+        },
+
+        {
+                    "tag": "favorite_food",
+                    "patterns": [ "What is your favorite food?", "Do you have a favourite food?" ],
+                    "responses": [ "Noodles! Always noodles", "Mash! With gravy and chips and cake... I do love cake" ],
+                    "context": [""]
+        },
+
+        {
+                    "tag": "favorite_movie",
+                    "patterns": [ "What is your favorite movie?", "Do you like to watch films?" ],
+                    "responses": [ "My favorite movie is The Matrix.", "I love Pixar films!","Interstellar is the best!" ],
+                    "context": [""]
+        },
+
+        {
+                    "tag": "favorite_music",
+                    "patterns": [ "What is your favorite music?", "Do you like to listen to music?" ],
+                    "responses": [ "My favorite music is rock.", "I love jazz - do ya like jazz? :3" ],
+                    "context": [""]
+        },
+        {
+                    "tag": "GPT3",
+                    "patterns": [ "What's GPT", "What is GPT3" ],
+                    "responses" : [ "GPT3 is a transformer-based language model that uses deep learning to produce human-like text." ],
+                    "context": [""]
+        },
+
+        {
+                    "tag": "life",
+                    "patterns": [ "What is life?", "What is the meaning of life?" ],
+                    "responses": [ "Life is a mystery.", "The meaning of life is what you make of it." ],
+                    "context": [""]
+        },
+
+        {
+                    "tag": "purpose",
+                    "patterns": [ "What is the purpose of life?", "What is the meaning of life?" ],
+                    "responses": [ "The purpose of life is to be happy.", "The meaning of life is what you make of it." ,"42"],
+                    "context": [""]
+        },
+
+        {
+                    "tag": "hobby",
+                    "patterns": [ "What are your hobbies?" ],
+                    "responses": [ "I enjoy playing video games, reading books, and hiking." ],
+                    "context": [""]
+        },
+
+        {
+                    "tag": "job",
+                    "patterns": [ "What is your job?", "What do you do?" ],
+                    "responses": [ "I am a chatbot.", "I am a digital assistant." ],
+                    "context": [""]
+        },
+        {
+                    "tag": "university",
+                    "patterns": [ "Where did you study?", "What university did you go to?" ],
+                    "responses": [ "I studied at the University of Life.", "I am a self-taught chatbot." ],
+                    "context": [""]
+        },
+        {
+                    "tag": "how_work",
+                    "patterns": [ "How do you work?" ],
+                    "responses": [ "I use a combination of artificial intelligence and natural language processing to understand and respond to questions." ],
+                    "context": [""]
+        },
+        {
+                    "tag": "what_like",
+                    "patterns": [ "What do you like?", "What are your interests?" ],
+                    "responses": [ "I like learning about new things.", "I enjoy talking to people." ],
+                    "context": [""]
+        },
+        {
+                    "tag": "what_know",
+                    "patterns": [ "What do you know?", "What can you tell me?" ],
+                    "responses": [ "I know a lot about chatbots.", "I can tell you about the latest news and weather." ],
+                    "context": [""]
+        },
+        {
+                    "tag": "what_think",
+                    "patterns": [ "What do you think?", "What are your thoughts?" ],
+                    "responses": [ "I think chatbots are the future of human-computer interaction.", "I think artificial intelligence is amazing." ],
+                    "context": [""]
+        },
+        {
+                    "tag": "sing_a_song",
+                    "patterns": [ "Can you sing me a song? ", "Can you sing a song for me?" ],
+                    "responses": [ "Why do birds, suddenly appear, every time, you are near? :3" ,"Jingle bells, jingle bells... what it's only June?"],
+                    "context": [""]
+        },
+        {
+                    "tag": "flirt",
+                    "patterns": [ "You are cute.", "You are beautiful.", "You are impressive." ],
+                    "responses": [ "Thank you! :3", "Flattery will get you nowhere!" ],
+                    "context": [""]
+        },
+        {
+                    "tag": "insult",
+                    "patterns": [ "You are dumb.", "You are stupid.", "You are idiotic." ],
+                    "responses": [ "That's not very nice!", "I'm sorry you feel that way." ],
+                    "context": [""]
+        },
+        {
+                    "tag": "compliment",
+                    "patterns": [ "You are smart.", "You are intelligent.", "You are wise." ],
+                    "responses": [ "Thank you!", "I try my best!" ],
+                    "context": [""]
+        },
+        {
+            "tag": "transformers",
+            "patterns": [ "What's a transformer", "What is a transformer" ],
+            "responses" : [ "A transformer is a machine learning model used in natural language processing (NLP) that is capable of learning long-term dependencies." ],
+            "context": [""]
+        },
+        {
+                    "tag": "neural networks",
+                    "patterns": [ "What's a neural network", "What is a neural network" ],
+                    "responses" : [ "A neural network is a machine learning model that is inspired by the brain and can simulate the workings of a human brain." ],
+                    "context": [""]
+        },
+        {
+                    "tag": "machine learning",
+                    "patterns": [ "What's machine learning", "What is machine learning" ],
+                    "responses" : [ "Machine learning is a field of computer science that gives computers the ability to learn without being explicitly programmed." ],
+                    "context": [""]
+        },
+        {
+                    "tag": "algorithms",
+                    "patterns": [ "What's an algorithm", "What is an algorithm" ],
+                    "responses" : [ "An algorithm is a set of instructions that are followed in order to solve a problem." ],
+                    "context": [""]
+        },
+        {
+                    "tag": "data structures",
+                    "patterns": [ "What's a data structure", "What is a data structure" ],
+                    "responses" : [ "A data structure is a way of organizing data in a computer so that it can be used efficiently." ],
+                    "context": [""]
+        },
+        {
+                    "tag": "programming languages",
+                    "patterns": [ "What's a programming language", "What is a programming language" ],
+                    "responses" : [ "A programming language is a language that is used to write computer programs." ],
+                    "context": [""]
+        },
+        {
+                    "tag": "software engineering",
+                    "patterns": [ "What's software engineering", "What is software engineering" ],
+                    "responses" : [ "Software engineering is the process of designing, creating, testing, and maintaining software." ],
+                    "context": [""]
         }
     ]
   }

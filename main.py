@@ -83,7 +83,7 @@ model = Sequential()
 model.add(Dense(128, input_shape=(len(train_x[0]),), activation='relu'))
 model.add(Dropout(0.5))
 model.add(Dense(64, activation='relu'))
-model.add(Dropout(0.5))
+model.add(Dropout(0.3))
 model.add(Dense(len(train_y[0]), activation='softmax'))
 
 # Compile model . Stochastic gradient descent with Nesterov accelerated gradient gives good results for this model
@@ -91,7 +91,7 @@ sgd = SGD(lr=0.01, decay=1e-6, momentum=0.9, nesterov=True)
 model.compile(loss='categorical_crossentropy', optimizer=sgd, metrics=['accuracy'])
 
 # fitting and saving the model
-hist = model.fit(np.array(train_x), np.array(train_y), epochs=200, batch_size=5, verbose=1)
+hist = model.fit(np.array(train_x), np.array(train_y), epochs=300, batch_size=15, verbose=1, shuffle=True)
 model.save('chatbot_model.h5', hist)
 
 print("model created")
@@ -122,6 +122,7 @@ def predict_class(sentence, model):
     # filter out predictions below a threshold
     p = bow(sentence, words, show_details=False)
     res = model.predict(np.array([p]))[0]
+    #print("class pred: " + str(res))
     ERROR_THRESHOLD = 0.25
     results = [[i, r] for i, r in enumerate(res) if r > ERROR_THRESHOLD]
     # sort by strength of probability
@@ -129,6 +130,10 @@ def predict_class(sentence, model):
     return_list = []
     for r in results:
         return_list.append({"intent": classes[r[0]], "probability": str(r[1])})
+
+    if return_list == []:
+        return_list.append({"intent": "other", "probability": str(0)})
+
     return return_list
 
 
@@ -144,57 +149,34 @@ def getResponse(ints, intents_json):
 
 def chatbot_response(msg):
     ints = predict_class(msg, model)
+    #print(ints)
     res = getResponse(ints, intents)
     return res
 
 
 # Creating GUI with tkinter
 
+print("\n\n\n\n\n\n=== Chat Bot Ready :) ===\n\n")
+while(1):
+    query = input("You: ")
+    if query != '':
+        res = chatbot_response(query)
+        print("Bot: " + res)
 
-def send():
-    msg = EntryBox.get("1.0", 'end-1c').strip()
-    EntryBox.delete("0.0", END)
+# def send():
+#     msg = EntryBox.get("1.0", 'end-1c').strip()
+#     EntryBox.delete("0.0", END)
 
-    if msg != '':
-        ChatLog.config(state=NORMAL)
-        ChatLog.insert(END, "You: " + msg + '\n\n')
-        ChatLog.config(foreground="#442265", font=("Verdana", 12))
+#     if msg != '':
+#         ChatLog.config(state=NORMAL)
+#         ChatLog.insert(END, "You: " + msg + '\n\n')
+#         ChatLog.config(foreground="#442265", font=("Verdana", 12))
 
-        res = chatbot_response(msg)
-        ChatLog.insert(END, "Bot: " + res + '\n\n')
+#         res = chatbot_response(msg)
+#         ChatLog.insert(END, "Bot: " + res + '\n\n')
 
-        ChatLog.config(state=DISABLED)
-        ChatLog.yview(END)
-
-
-base = Tk()
-base.title("Hello")
-base.geometry("400x500")
-base.resizable(width=FALSE, height=FALSE)
-
-# Create Chat window
-ChatLog = Text(base, bd=0, bg="white", height="8", width="50", font="Arial", )
-
-ChatLog.config(state=DISABLED)
-
-# Bind scrollbar to Chat window
-scrollbar = Scrollbar(base, command=ChatLog.yview, cursor="heart")
-ChatLog['yscrollcommand'] = scrollbar.set
-
-# Create Button to send message
-SendButton = Button(base, font=("Verdana", 12, 'bold'), text="Send", width="12", height=5,
-                    bd=0, bg="#32de97", activebackground="#3c9d9b", fg='#ffffff',
-                    command=send)
-
-# Create the box to enter message
-EntryBox = Text(base, bd=0, bg="white", width="29", height="5", font="Arial")
-# EntryBox.bind("<Return>", send)
+#         ChatLog.config(state=DISABLED)
+#         ChatLog.yview(END)
 
 
-# Place all components on the screen
-scrollbar.place(x=376, y=6, height=386)
-ChatLog.place(x=6, y=6, height=386, width=370)
-EntryBox.place(x=128, y=401, height=90, width=265)
-SendButton.place(x=6, y=401, height=90)
 
-base.mainloop()
